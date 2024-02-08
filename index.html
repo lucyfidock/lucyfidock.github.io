@@ -1,29 +1,57 @@
-<html>
+<html> 
 
 <head>
 <style>
     h1 {
         text-align: center;
         color: #9d0606;
+        font-family: 'Courier New', Courier, monospace;
     
     }
-    .button{
+    button{
         background-color: #d1287f;
-        color: #ffffff;
         padding: 6px 15px;
-        text-align: center;
         border: none;
         display: inline-block;
 
+        text-align: center;
+        color: #ffffff;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
     }
+
+    .parentDiv {  
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    } 
+
 </style>
 </head>
 
 <body>
-  <h1>Question</h1>
-  <button class = "button">Yes</button>
-  <p>text</p>
-  <img src = "question.gif" style = "width:40px; height:40px;">
+
+    <script>
+        function happyReact() {
+            document.getElementById("reaction").src = "love.gif";
+        }
+
+        function happyReact() {
+            document.getElementById("reaction").src = "cry.gif";
+        }
+    </script>
+
+    <div class="parentDiv"> 
+        <img src="question.gif" id = "reaction"> 
+    </div> 
+
+  <h1>Will you be my valentine?</h1>
+  
+  <div class="parentDiv"> 
+    <button class = "button" onclick = happyReact()>Yes</button>
+    <button class = "button" onclick = sadReact()> No</button>
+  </div>
+
 </body>
 
 </html>
