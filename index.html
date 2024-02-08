@@ -26,23 +26,45 @@
         align-items: center;
     } 
 
+    p {
+        text-align: center;
+        color: #9d0606;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
 </style>
 </head>
 
 <body>
 
     <script>
-        function happyReact() {
-            document.getElementById("reaction").src = "love.gif";
-        }
+        const happyText = ["Yay thank you! I love you", "Mwah mwah", "So happy!", "Hehe thanks", "Aww ilysm", "So cute!", "Thanks my love"]
+        const angryText = ["So mean", "Wowwwwww", "This is just rude", "I'm so sad", "Incorrect", "Wrong answer!", "Try again", "How dare you"]
+
 
         function happyReact() {
-            document.getElementById("reaction").src = "cry.gif";
+            document.getElementById("reaction").src = "love.gif";
+            document.getElementById("thanksText").style.display = "block";
+            document.getElementById("angryText").style.display = "none";
+
+            const random = Math.floor(Math.random() * happyText.length);
+            document.getElementById("thanksText").innerHTML = happyText[random];
         }
+
+        function sadReact() {
+            document.getElementById("reaction").src = "cry.gif";
+            document.getElementById("thanksText").style.display = "none";
+            document.getElementById("angryText").style.display = "block";
+
+            const random = Math.floor(Math.random() * angryText.length);
+            document.getElementById("angryText").innerHTML = angryText[random];
+        }
+
+
     </script>
 
     <div class="parentDiv"> 
-        <img src="question.gif" id = "reaction"> 
+        <img src="question.gif" id = "reaction" style = "height: 200px; width: 200px;"> 
     </div> 
 
   <h1>Will you be my valentine?</h1>
@@ -51,6 +73,9 @@
     <button class = "button" onclick = happyReact()>Yes</button>
     <button class = "button" onclick = sadReact()> No</button>
   </div>
+
+  <p id = "thanksText" style = "display: none;">Yay thank you! I love you</p>
+  <p id = "angryText" style = "display: none;">So mean</p>
 
 </body>
 
