@@ -18,7 +18,7 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-y-8 gap-x-20 mb-8 mt-8">
 
             {/* headshot */}
-            <div>
+            <div class="rounded-full p-[2px] bg-gradient-to-b from-light-wisteria-300 to-light-wisteria-600">
               <img src={headshot} alt='headshot' className="w-60 rounded-full object-cover"/>
             </div>
 
