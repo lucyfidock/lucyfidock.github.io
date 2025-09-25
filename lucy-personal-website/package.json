@@ -2,7 +2,7 @@
   "name": "lucy-personal-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lucyfidock.github.io/lucyfidock",
+  "homepage": "https://lucyfidock.github.io/lucyfidock.github.io",
   "dependencies": {
     "@fontsource/dm-serif-text": "^5.2.8",
     "@fontsource/noto-serif": "^5.2.9",
