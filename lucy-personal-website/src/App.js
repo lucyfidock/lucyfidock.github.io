@@ -7,6 +7,7 @@ import AboutPage from './components/About.js';
 
 const App = () => {
   const [currentRoute, setCurrentRoute] = useState('home');
+  const [mode, setMode] = useState('light');
 
   // Component mapping
   const components = {
@@ -44,8 +45,8 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <Header currentRoute={currentRoute} />
+    <div className="App" data-theme={mode}>
+      <Header currentRoute={currentRoute} mode={mode} setMode={setMode}/>
       
       <main>
         {getCurrentComponent()}
