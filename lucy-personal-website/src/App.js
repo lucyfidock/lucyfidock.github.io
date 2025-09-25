@@ -4,6 +4,8 @@ import { router, routes } from './routes.js';
 import Header from './components/Header.js';
 import HomePage from './components/Home.js';
 import AboutPage from './components/About.js';
+import CvPage from './components/CV.js';
+import BlogPage from './components/Blog.js';
 
 const App = () => {
   const [currentRoute, setCurrentRoute] = useState('home');
@@ -12,7 +14,9 @@ const App = () => {
   // Component mapping
   const components = {
     HomePage,
-    AboutPage
+    AboutPage,
+    CvPage,
+    BlogPage
   };
 
   useEffect(() => {

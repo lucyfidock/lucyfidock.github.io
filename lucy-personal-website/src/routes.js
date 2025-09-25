@@ -15,6 +15,11 @@ export const routes = {
     path: '/cv',
     name: 'CV',
     component: 'CvPage'
+  },
+  blog: {
+    path: '/blog',
+    name: 'Blog',
+    component: 'BlogPage'
   }
 };
 
