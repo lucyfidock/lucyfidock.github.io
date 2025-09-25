@@ -1,7 +1,9 @@
 // Header.js - Header component with navigation
-import React from 'react';
+import React, { useState } from 'react';
 import { routes, router } from '../routes.js';
 import Icon from './icons/Mode.js';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const Header = ({ currentRoute, mode, setMode }) => {
   const handleNavigation = (routeName) => {
@@ -11,11 +13,15 @@ const Header = ({ currentRoute, mode, setMode }) => {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark')
+      setModeText('Light Mode')
     }
     else {
       setMode('light')
+      setModeText('Dark Mode')
     }
   }
+
+  const [modeText, setModeText] = useState('Dark Mode');
 
   return (
     <header className="sticky top-0 bg-light-wisteria-50 dark:bg-pale-slate-950 text-light-wisteria-600 shadow-lg shadow-light-wisteria-100 dark:shadow-stone-800 dark:text-light-wisteria-400 transition-colors" >
@@ -27,24 +33,70 @@ const Header = ({ currentRoute, mode, setMode }) => {
           >
             LF.
           </button>
-          {/* make dropdown for phone view */}
-          <ul className="flex space-x-6 items-center">
-            {Object.entries(routes).map(([key, route]) => (
-              <li key={key}>
-                <button
-                  onClick={() => handleNavigation(key)}
-                  className={`px-3 py-2 rounded transition-colors ${
-                    currentRoute === key
-                      ? 'font-sans bg-light-wisteria-600 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
-                      : 'font-sans hover:bg-light-wisteria-400'
-                  }`}
-                >
-                  {route.name}
-                </button>
-              </li>
-            ))}
-            <Icon mode={mode} onClick={() => toggleMode()}></Icon>
-          </ul>
+
+          {/* dropdown for phone view */}
+          <div className="block md:hidden">
+            <Menu as="div" className="relative inline-block text-left">
+              <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-light-wisteria-100 dark:bg-pale-slate-900 px-3 py-2 text-sm font-semibold text-light-wisteria-600 dark:text-light-wisteria-400 hover:bg-light-wisteria-200 dark:hover:bg-pale-slate-800 transition-colors">
+                Menu
+                <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+              </MenuButton>
+
+              <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded bg-light-wisteria-50 dark:bg-pale-slate-950 shadow-lg shadow-light-wisteria-100 dark:shadow-stone-800 focus:outline-none">
+                {Object.entries(routes).map(([key, route]) => (
+                  <MenuItem key={key}>
+                    {({ active }) => (
+                      <button
+                        onClick={() => handleNavigation(key)}
+                        className={`block w-full text-left px-4 py-2 text-sm rounded transition-colors ${
+                          currentRoute === key
+                            ? 'bg-light-wisteria-600 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
+                            : active
+                            ? 'bg-light-wisteria-200 dark:bg-pale-slate-800'
+                            : 'text-light-wisteria-600 dark:text-light-wisteria-400'
+                        }`}
+                      >
+                        {route.name}
+                      </button>
+                    )}
+                  </MenuItem>
+                ))}
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={toggleMode}
+                      className={`block w-full text-left px-4 py-2 text-sm rounded transition-colors ${
+                        active ? 'bg-light-wisteria-200 dark:bg-pale-slate-800' : ''
+                      }`}
+                    >
+                      {modeText}
+                    </button>
+                  )}
+                </MenuItem>
+              </MenuItems>
+            </Menu>
+          </div>
+
+          {/* row of buttons for desktop */}
+          <div className="hidden md:block">
+            <ul className="flex space-x-6 items-center">
+              {Object.entries(routes).map(([key, route]) => (
+                <li key={key}>
+                  <button
+                    onClick={() => handleNavigation(key)}
+                    className={`px-3 py-2 rounded transition-colors ${
+                      currentRoute === key
+                        ? 'font-sans bg-light-wisteria-600 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
+                        : 'font-sans hover:bg-light-wisteria-400'
+                    }`}
+                  >
+                    {route.name}
+                  </button>
+                </li>
+              ))}
+              <Icon mode={mode} onClick={() => toggleMode()}></Icon>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>

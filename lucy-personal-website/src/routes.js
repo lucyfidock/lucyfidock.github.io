@@ -15,11 +15,6 @@ export const routes = {
     path: '/cv',
     name: 'CV',
     component: 'CvPage'
-  },
-  contact: {
-    path: '/contact',
-    name: 'Contact',
-    component: 'ContactPage'
   }
 };
 
