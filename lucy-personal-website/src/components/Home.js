@@ -19,7 +19,7 @@ const HomePage = () => {
 
             {/* headshot */}
             <div>
-              <img src={headshot} alt='headshot' className="w-60 h60 rounded-full object-cover"/>
+              <img src={headshot} alt='headshot' className="w-60 rounded-full object-cover"/>
             </div>
 
             {/* name and desc */}
@@ -53,6 +53,9 @@ const HomePage = () => {
           <h2 className="text-4xl font-heading mb-4">
               Recent Uploads
           </h2>
+          <p className="text-xl font-sans mb-8">
+                Blog to come ... if I can figure it out
+          </p>
 
         </div>
       </div>

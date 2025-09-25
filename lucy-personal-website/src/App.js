@@ -56,10 +56,9 @@ const App = () => {
         {getCurrentComponent()}
       </main>
       
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-light-wisteria-100 dark:bg-pale-slate-900 py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 MyWebsite. All rights reserved.</p>
-          <p className="mt-2 text-gray-400">
+          <p className="mt-2 text-light-wisteria-600 dark:text-light-wisteria-400">
             Built with React and styled with Tailwind CSS
           </p>
         </div>

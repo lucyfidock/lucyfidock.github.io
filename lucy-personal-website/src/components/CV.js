@@ -1,58 +1,106 @@
 // HomePage.js - Home page component
 import React from 'react';
-import { router } from '../routes.js';
-import headshot from './icons/headshot1.jpg';
-import { ReactComponent as LinkedInIcon } from './icons/linkedin.svg';
-import { ReactComponent as MailIcon } from './icons/mail.svg';
+import deloitte from './icons/deloitte.jpg'
+import scholarship from './icons/eset_scholarship.jpeg'
 
-const HomePage = () => {
-  const handleLearnMore = () => {
-    router.navigate('about');
-  };
+const CvPage = () => {
 
   return (
     <div className="min-h-screen bg-light-wisteria-50 dark:bg-pale-slate-950 text-light-wisteria-600 dark:text-light-wisteria-400 transition-colors">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-y-8 gap-x-20 mb-8 mt-8">
+          <div className="flex justify-flex-start flex-col mt-16">
+            <h1 className="text-6xl font-heading mb-8">
+              Experience and Projects
+            </h1>
 
-            {/* headshot */}
-            <div>
-              <img src={headshot} alt='headshot' className="w-60 h60 rounded-full object-cover"/>
+            <p className="text-xl font-sans mb-16">
+                Throughout my time at university, I've had the opportunity to gain work on research projects
+                and experience working in tech as an intern.  
+            </p>
+
+            <p className="text-4xl font-heading mb-4"> Experience </p>
+
+            <div className="mb-8 font-sans">
+              <p className="text-2xl font-bold"> Ipau Technologies | Cybersecurity Intern </p>
+              <p className="text-xl italic mb-2"> June - November 2025 </p>
+              <p className="text-xl"> 
+                • Conducting Essential Eight compliance reviews of security clients and reporting findings. <br/>
+                • Implementing solutions to fulfill Essential Eight requirements through endpoint management,
+                application control, and patch management. 
+              </p>
             </div>
 
-            {/* name and desc */}
-            <div className="text-center md:text-left flex flex-col justify-center">
-              <h1 className="text-6xl font-heading mb-4">
-                Lucy Fidock
-              </h1>
-              <p className="text-3xl font-serif mb-4">
-                Software Engineer
-              </p>
-
-              <div className="flex items-center space-x-4 md:self-start self-center">
-                <a href="https://www.linkedin.com/in/lucyfidock/" target="_blank" rel="noopener noreferrer">
-                    <LinkedInIcon className="fill-current light-wisteria-600 dark:light-wisteria-400 w-6 h-6" />
-                </a>  
-                <a href="mailto:lucy.fidock@icloud.com" target="_blank" rel="noopener noreferrer">
-                  <MailIcon className="fill-current light-wisteria-600 dark:light-wisteria-400 w-6 h-6" />
-                </a>
+            <div className="mb-8 font-sans">
+              <p className="text-2xl font-bold"> Deloitte | Software Engineering Intern </p>
+              <div className="flex flex-row">
+                <div>
+                  <p className="text-xl italic mb-2"> April - June 2025  </p>
+                  <p className="text-xl mr-8">
+                    • Contributed to multiple proof of concept projects for ‘Optimal Reality’, a digital twin and simulation platform. <br/>
+                    • Collaborated with the backend team to translate high-level concepts into functional solutions within two-week sprints. <br/>
+                    • Designed data schemas and implemented functions for the ‘Optimal Reality Model Development Kit’.
+                  </p>
+                </div>
+                <img src={deloitte} alt='Deloitte Intern Cohort' className="h-60 rounded-sm object-cover"/>
               </div>
-
             </div>
-          </div>
 
-          <div className="text-left mb-12 mt-12">
-              <p className="text-xl font-sans mb-8">
-                Final year Bachelor of Computer Science (Advanced) student at the University of Adelaide
-                Incoming Graduate Software Engineer @ Atlassian
+            <div className="mb-8 font-sans">
+              <p className="text-2xl font-bold"> Atlassian | Software Engineering Intern </p>
+              <p className="text-xl italic mb-2"> November 2024 - February 2025  </p>
+              <p className="text-xl"> 
+                • Worked on the Jira Cloud Migration Assistant within the VIPER Migrations team. <br/>
+                • Contributed towards the ‘Migration Notifier’ project, used DynamoDB to store notification configuration data, implemented CRUD API and frontend. <br/>
+                • Took part in the ‘SHIP IT’ intern competition, creating a tool to generate performance review summaries.
               </p>
-          </div>
+            </div>
 
-          <h2 className="text-4xl font-heading mb-4">
-              Recent Uploads
-          </h2>
+            <p className="text-4xl font-heading mb-4"> Projects </p>
+
+            <div className="mb-8 font-sans">
+              <p className="text-2xl font-bold"> Evaluating Security of Multi-Agent Systems </p>
+              <p className="text-xl italic mb-2"> March - June 2025 </p>
+              <p className="text-xl"> 
+                • Working with Professor Hung Nguyen, built a multi agent AI system using the ‘smolagents’ framework, integrating web search, SQL queries, and timetable generation into agent tools. <br/>
+                • Conducted testing against the system, simulating attack scenarios and evaluating vulnerabilities.
+              </p>
+            </div>
+
+            <div className="mb-8 font-sans">
+              <p className="text-2xl font-bold"> Understanding sophisticated cyber-enabled influence operations </p>
+              <p className="text-xl italic mb-2"> July - November 2024 </p>
+              <p className="text-xl"> 
+                • Created models with the MITRE ATT&CK and DISARM frameworks using the MITRE Attack Flow Builder. Reviewed the modelling process and analysed the models produced. <br/>
+                • Contributed to a project led by Professor Hung Nguyen and Jim Morris. Click 
+                <a href="./ADSTAR_poster.pdf" className="text-light-wisteria-600 dark:text-light-wisteria-400 cursor-pointer hover:text-light-wisteria-400 dark:hover:text-light-wisteria-600 font-bold"> here </a>
+                to view the poster displayed at the Australian Defence Science, Technology and Research Summit.
+              </p>
+            </div>
+
+            <p className="text-4xl font-heading mb-4"> Achievements </p>
+            <div className="flex flex-row">
+              <div>
+                <div className="mb-8 font-sans">
+                  <p className="text-2xl font-bold"> ESET Women in Cybersecurity Scholarship 2024 </p>
+                  <p className="text-xl"> 
+                    Cybersecurity scholarship for exemplary female students enrolled in a STEM program. Met with the Minister for Defence and Cybersecurity in Canberra.
+                  </p>
+                </div>
+
+                <div className="mb-8 font-sans">
+                  <p className="text-2xl font-bold"> Notable Coursework </p>
+                  <p className="text-xl"> 
+                    Algorithm & Data Structure Analysis - HD (95) <br/>
+                    Advanced Cybersecurity - HD (93)
+                  </p>
+                </div>
+              </div>
+              <img src={scholarship} alt='Minister of Defence and Cybersecurity' className="h-60 rounded-sm object-cover"/>
+            </div>
+
+          </div>
 
         </div>
       </div>
@@ -60,4 +108,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default CvPage;

@@ -29,7 +29,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
         <nav className="flex items-center justify-between">
           <button
             onClick={() => handleNavigation('home')}
-            className="text-4xl font-heading hover:text-light-wisteria-400 transition-colors "
+            className="text-4xl font-heading hover:text-light-wisteria-400 dark:hover:text-light-wisteria-600 transition-colors "
           >
             LF.
           </button>
@@ -87,7 +87,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
                     className={`px-3 py-2 rounded transition-colors ${
                       currentRoute === key
                         ? 'font-sans bg-light-wisteria-600 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
-                        : 'font-sans hover:bg-light-wisteria-400'
+                        : 'font-sans hover:bg-light-wisteria-400 dark:hover:bg-light-wisteria-600'
                     }`}
                   >
                     {route.name}
