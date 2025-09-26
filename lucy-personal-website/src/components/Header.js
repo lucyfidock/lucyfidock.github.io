@@ -36,7 +36,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
 
           {/* dropdown for phone view */}
           <div className="block md:hidden">
-            <Menu as="div" className="relative inline-block text-left">
+            <Menu as="div" className="relative inline-block text-left font-sans">
               <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-light-wisteria-100 dark:bg-pale-slate-900 px-3 py-2 text-sm font-semibold text-light-wisteria-600 dark:text-light-wisteria-400 hover:bg-light-wisteria-200 dark:hover:bg-pale-slate-800 transition-colors">
                 Menu
                 <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />

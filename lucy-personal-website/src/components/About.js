@@ -26,10 +26,10 @@ const AboutPage = () => {
                 <span onClick={() => handleNavigation('cv')} className="text-light-wisteria-600 dark:text-light-wisteria-400 cursor-pointer hover:text-light-wisteria-400 dark:hover:text-light-wisteria-600 font-bold"> here</span>.
             </p>
 
-            <div className="flex flex-row justify-between mb-16">
-              <img src={photo1} alt='melbourne streets' className="w-60 shrink-1 rounded-sm object-cover"/>
-              <img src={photo2} alt='lucy in arashiyama' className="w-60 shrink-1 rounded-sm object-cover"/>
-              <img src={photo3} alt='bamboo forest' className="w-60 shrink-1 rounded-sm object-cover"/>
+            <div className="flex flex-row justify-center md:justify-between mb-16">
+              <img src={photo1} alt='melbourne streets' className="w-60 rounded-sm object-cover hidden md:block"/>
+              <img src={photo2} alt='lucy in arashiyama' className="w-60 rounded-sm object-cover"/>
+              <img src={photo3} alt='bamboo forest' className="w-60 rounded-sm object-cover hidden md:block"/>
             </div>
 
             <div className="flex flex-row justify-between mb-10">

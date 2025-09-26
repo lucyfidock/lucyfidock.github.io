@@ -54,7 +54,7 @@ const HomePage = () => {
               Recent Uploads
           </h2>
           <p className="text-xl font-sans mb-8">
-                Blog to come ... if I can figure it out
+                ...
           </p>
 
         </div>

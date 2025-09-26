@@ -33,9 +33,10 @@ const CvPage = () => {
             </div>
 
             <div className="mb-8 font-sans">
-              <p className="text-2xl font-bold"> Deloitte | Software Engineering Intern </p>
-              <div className="flex flex-row">
-                <div>
+              
+              <div className="flex md:flex-row flex-col md:items-start items-center gap-6">
+                <div className="flex-1">
+                  <p className="text-2xl font-bold"> Deloitte | Software Engineering Intern </p>
                   <p className="text-xl italic mb-2"> April - June 2025  </p>
                   <p className="text-xl mr-8">
                     • Contributed to multiple proof of concept projects for ‘Optimal Reality’, a digital twin and simulation platform. <br/>
@@ -43,7 +44,10 @@ const CvPage = () => {
                     • Designed data schemas and implemented functions for the ‘Optimal Reality Model Development Kit’.
                   </p>
                 </div>
-                <img src={deloitte} alt='Deloitte Intern Cohort' className="h-60 rounded-sm object-cover"/>
+                <div className="flex flex-col items-center mt-2">
+                  <img src={deloitte} alt='Deloitte Intern Cohort' className="w-80 h-60 rounded-sm object-scale-down"/>
+                  <p className="text-l italic"> Deloitte Internship Cohort </p>
+                </div>
               </div>
             </div>
 
@@ -80,7 +84,7 @@ const CvPage = () => {
             </div>
 
             <p className="text-4xl font-heading mb-4"> Achievements </p>
-            <div className="flex flex-row">
+            <div className="flex md:flex-row flex-col items-center">
               <div>
                 <div className="mb-8 font-sans">
                   <p className="text-2xl font-bold"> ESET Women in Cybersecurity Scholarship 2024 </p>
@@ -97,7 +101,11 @@ const CvPage = () => {
                   </p>
                 </div>
               </div>
-              <img src={scholarship} alt='Minister of Defence and Cybersecurity' className="h-60 rounded-sm object-cover"/>
+              <div className="flex flex-col items-center mt-0">
+                  <img src={scholarship} alt='Minister of Defence and Cybersecurity' className="md:w-96 w-60 rounded-sm object-scale-down mb-1"/>
+                  <p className="text-l italic"> ESET Scholarship </p>
+              </div>
+              
             </div>
 
           </div>
