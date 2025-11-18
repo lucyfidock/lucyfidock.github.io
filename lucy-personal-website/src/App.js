@@ -58,7 +58,7 @@ const App = () => {
       
       <footer className="bg-light-wisteria-100 dark:bg-pale-slate-900 py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="mt-2 text-light-wisteria-600 dark:text-light-wisteria-400">
+          <p className="mt-2 text-light-wisteria-600 dark:text-light-wisteria-400 font-sans">
             Built with React and styled with Tailwind CSS
           </p>
         </div>

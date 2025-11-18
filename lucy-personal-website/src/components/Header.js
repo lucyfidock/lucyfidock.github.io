@@ -42,7 +42,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
                 <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
               </MenuButton>
 
-              <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded bg-light-wisteria-50 dark:bg-pale-slate-950 shadow-lg shadow-light-wisteria-100 dark:shadow-stone-800 focus:outline-none">
+              <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded bg-light-wisteria-50 dark:bg-pale-slate-950 shadow-lg shadow-light-wisteria-100 dark:shadow-stone-800 focus:outline-none">
                 {Object.entries(routes).map(([key, route]) => (
                   <MenuItem key={key}>
                     {({ active }) => (
@@ -50,7 +50,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
                         onClick={() => handleNavigation(key)}
                         className={`block w-full text-left px-4 py-2 text-sm rounded transition-colors ${
                           currentRoute === key
-                            ? 'bg-light-wisteria-600 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
+                            ? 'font-sans bg-gradient-to-b from-light-wisteria-600 to-light-wisteria-400 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
                             : active
                             ? 'bg-light-wisteria-200 dark:bg-pale-slate-800'
                             : 'text-light-wisteria-600 dark:text-light-wisteria-400'
@@ -86,7 +86,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
                     onClick={() => handleNavigation(key)}
                     className={`px-3 py-2 rounded transition-colors ${
                       currentRoute === key
-                        ? 'font-sans bg-light-wisteria-600 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
+                        ? 'font-sans bg-gradient-to-b from-light-wisteria-600 to-light-wisteria-400 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
                         : 'font-sans hover:bg-light-wisteria-400 dark:hover:bg-light-wisteria-600'
                     }`}
                   >

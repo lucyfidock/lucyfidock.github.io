@@ -73,7 +73,7 @@ const CvPage = () => {
             </div>
 
             <div className="mb-8 font-sans">
-              <p className="text-2xl font-bold"> Understanding sophisticated cyber-enabled influence operations </p>
+              <p className="text-2xl font-bold"> Understanding Sophisticated Cyber-Enabled Influence Operations </p>
               <p className="text-xl italic mb-2"> July - November 2024 </p>
               <p className="text-xl"> 
                 • Created models with the MITRE ATT&CK and DISARM frameworks using the MITRE Attack Flow Builder. Reviewed the modelling process and analysed the models produced. <br/>
