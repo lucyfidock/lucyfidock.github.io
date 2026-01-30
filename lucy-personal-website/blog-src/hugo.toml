@@ -1,0 +1,4 @@
+baseURL = 'http://localhost:3000/posts/'
+publishDir = '../public/posts'
+languageCode = 'en-us'
+title = 'Hugo Blog'

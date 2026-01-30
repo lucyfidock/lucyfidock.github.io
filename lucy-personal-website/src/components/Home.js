@@ -41,12 +41,14 @@ const HomePage = () => {
           <div className="text-left mb-12 mt-12">
               <p className="text-xl font-sans mb-8">
                 Final year Bachelor of Computer Science (Advanced) student at the University of Adelaide
-                Incoming Graduate Software Engineer @ Atlassian
+                {/* Incoming Graduate Software Engineer @ Atlassian */}
               </p>
           </div>
 
-          <h2 className="text-4xl font-heading mb-4">
+          <h2 className="text-4xl font-heading mb-4"> 
+            <a href="/blog/">
               Recent Uploads
+            </a>
           </h2>
           <p className="text-xl font-sans mb-8">
                 ...
