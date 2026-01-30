@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-4xl mx-auto">
+    <article class="mt-16">
+      <header class="mb-8">
+        <h1 class="text-6xl font-heading mb-4">{{ .Title }}</h1>
+        <time class="text-light-wisteria-500 dark:text-light-wisteria-400">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        {{ with .Params.tags }}
+        <div class="mt-4 flex gap-2">
+          {{ range . }}
+          <span class="text-xs px-2 py-1 rounded bg-light-wisteria-100 dark:bg-pale-slate-900 text-light-wisteria-600 dark:text-light-wisteria-400">
+            {{ . }}
+          </span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </header>
+      
+      <div class="prose prose-lg dark:prose-invert max-w-none
+                  prose-headings:font-heading prose-headings:text-light-wisteria-600 dark:prose-headings:text-light-wisteria-400
+                  prose-a:text-light-wisteria-500 hover:prose-a:text-light-wisteria-600
+                  prose-code:text-light-wisteria-600 dark:prose-code:text-light-wisteria-400">
+        {{ .Content }}
+      </div>
+      
+      <nav class="mt-12 pt-8 border-t border-light-wisteria-200 dark:border-pale-slate-800">
+        <a href="/posts/" class="text-light-wisteria-500 hover:text-light-wisteria-600 font-semibold">
+          ← Back to all posts
+        </a>
+      </nav>
+    </article>
+  </div>
+</div>
+{{ end }}

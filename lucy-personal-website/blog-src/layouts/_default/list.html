@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex justify-flex-start flex-col mt-16">
+      <h1 class="text-6xl font-heading mb-8">
+        Blog
+      </h1>
+      
+      <div class="space-y-8">
+        {{ range .Pages }}
+        <article class="border-b border-light-wisteria-200 dark:border-pale-slate-800 pb-6">
+          <h2 class="text-3xl font-heading mb-2">
+            <a href="{{ .Permalink }}" class="hover:text-light-wisteria-500 transition-colors">
+              {{ .Title }}
+            </a>
+          </h2>
+          <time class="text-sm text-light-wisteria-500 dark:text-light-wisteria-400">
+            {{ .Date.Format "January 2, 2006" }}
+          </time>
+          {{ with .Params.tags }}
+          <div class="mt-2 flex gap-2">
+            {{ range . }}
+            <span class="text-xs px-2 py-1 rounded bg-light-wisteria-100 dark:bg-pale-slate-900 text-light-wisteria-600 dark:text-light-wisteria-400">
+              {{ . }}
+            </span>
+            {{ end }}
+          </div>
+          {{ end }}
+          <p class="mt-3">{{ .Summary }}</p>
+          <a href="{{ .Permalink }}" class="inline-block mt-3 text-light-wisteria-500 hover:text-light-wisteria-600 font-semibold">
+            Read more →
+          </a>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

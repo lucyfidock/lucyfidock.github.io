@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Your custom fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Noto+Serif&family=Raleway&display=swap">
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'light-wisteria': {
+                50: '#faf8fc',
+                100: '#f3edf8',
+                200: '#e9ddf2',
+                400: '#c5b9e0',
+                600: '#6b5b95',
+              },
+              'pale-slate': {
+                800: '#1a1924',
+                900: '#14121d',
+                950: '#0f0e17',
+              }
+            },
+            fontFamily: {
+              'heading': ['"DM Serif Text"', 'serif'],
+              'sans': ['Raleway', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <script>
+      // Dark mode toggle
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+      
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      }
+      
+      // Check for saved theme preference on load
+      if (localStorage.getItem('theme') === 'dark' || 
+          (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+</head>
+<body class="min-h-screen bg-light-wisteria-50 dark:bg-pale-slate-950 text-light-wisteria-600 dark:text-light-wisteria-400 transition-colors">
+    {{ partial "header.html" . }}
+    
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+</body>
+</html>

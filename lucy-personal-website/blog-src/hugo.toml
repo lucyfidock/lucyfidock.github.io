@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:3000/posts/'
+baseURL = 'https://lucyfidock.github.io/posts/'
 publishDir = '../public/posts'
 languageCode = 'en-us'
-title = 'Hugo Blog'
+title = 'Lucy Fidock - Blog'

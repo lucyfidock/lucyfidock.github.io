@@ -17,9 +17,9 @@ export const routes = {
     component: 'CvPage'
   },
   blog: {
-    path: '/blog',
+    path: '/posts/',
     name: 'Blog',
-    component: 'BlogPage'
+    external: true 
   }
 };
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lucy Fidock - Blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content on Lucy Fidock - Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Blog Post</title>
+      <link>http://localhost:1313/posts/posts/my-first-post/</link>
+      <pubDate>Thu, 30 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/posts/my-first-post/</guid>
+      <description>&lt;p&gt;Welcome to my blog! This is my first post using Hugo.&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m excited to share my thoughts and experiences here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-ill-write-about&#34;&gt;What I&amp;rsquo;ll Write About&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Technology&lt;/li&gt;&#xA;&lt;li&gt;Learning&lt;/li&gt;&#xA;&lt;li&gt;Projects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Stay tuned for more posts!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,13 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const Header = ({ currentRoute, mode, setMode }) => {
-  const handleNavigation = (routeName) => {
-    router.navigate(routeName);
+  const handleNavigation = (routeName, route) => {
+    // Check if it's an external link
+    if (route.external) {
+      window.location.href = route.path;
+    } else {
+      router.navigate(routeName);
+    }
   };
 
   const toggleMode = () => {
@@ -28,7 +33,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <button
-            onClick={() => handleNavigation('home')}
+            onClick={() => handleNavigation('home', routes.home)}
             className="text-4xl font-heading hover:text-light-wisteria-400 dark:hover:text-light-wisteria-600 transition-colors "
           >
             LF.
@@ -47,7 +52,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
                   <MenuItem key={key}>
                     {({ active }) => (
                       <button
-                        onClick={() => handleNavigation(key)}
+                        onClick={() => handleNavigation(key, route)}
                         className={`block w-full text-left px-4 py-2 text-sm rounded transition-colors ${
                           currentRoute === key
                             ? 'font-sans bg-gradient-to-b from-light-wisteria-600 to-light-wisteria-400 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
@@ -83,7 +88,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
               {Object.entries(routes).map(([key, route]) => (
                 <li key={key}>
                   <button
-                    onClick={() => handleNavigation(key)}
+                    onClick={() => handleNavigation(key, route)}
                     className={`px-3 py-2 rounded transition-colors ${
                       currentRoute === key
                         ? 'font-sans bg-gradient-to-b from-light-wisteria-600 to-light-wisteria-400 text-white dark:bg-light-wisteria-400 dark:text-pale-slate-950'
