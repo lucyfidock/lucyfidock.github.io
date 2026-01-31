@@ -23,6 +23,9 @@ const Header = ({ currentRoute, mode, setMode }) => {
 
   const [modeText, setModeText] = useState('Dark Mode');
 
+  // Filter out routes that should be hidden from navigation
+  const navRoutes = Object.entries(routes).filter(([key, route]) => !route.hideFromNav);
+
   return (
     <header className="sticky top-0 bg-light-wisteria-50 dark:bg-pale-slate-950 text-light-wisteria-600 shadow-lg shadow-light-wisteria-100 dark:shadow-stone-800 dark:text-light-wisteria-400 transition-colors" >
       <div className="container mx-auto px-4 py-4">
@@ -43,7 +46,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
               </MenuButton>
 
               <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded bg-light-wisteria-50 dark:bg-pale-slate-950 shadow-lg shadow-light-wisteria-100 dark:shadow-stone-800 focus:outline-none">
-                {Object.entries(routes).map(([key, route]) => (
+                {navRoutes.map(([key, route]) => (
                   <MenuItem key={key}>
                     {({ active }) => (
                       <button
@@ -80,7 +83,7 @@ const Header = ({ currentRoute, mode, setMode }) => {
           {/* row of buttons for desktop */}
           <div className="hidden md:block">
             <ul className="flex space-x-6 items-center">
-              {Object.entries(routes).map(([key, route]) => (
+              {navRoutes.map(([key, route]) => (
                 <li key={key}>
                   <button
                     onClick={() => handleNavigation(key)}

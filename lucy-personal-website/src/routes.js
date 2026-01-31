@@ -20,6 +20,12 @@ export const routes = {
     path: '/blog',
     name: 'Blog',
     component: 'BlogPage'
+  },
+  blogPost: {
+    path: '/blog/:slug',
+    name: 'Blog Post',
+    component: 'BlogPost',
+    hideFromNav: true  // don't show in navigation
   }
 };
 
@@ -27,22 +33,36 @@ export const routes = {
 export class Router {
   constructor() {
     this.currentRoute = 'home';
+    this.routeParams = {};
     this.listeners = [];
   }
 
-  // Navigate to a route
-  navigate(routeName) {
+  // Navigate to a route with optional parameters
+  navigate(routeName, params = {}) {
     if (routes[routeName]) {
       this.currentRoute = routeName;
+      this.routeParams = params;
       this.notifyListeners();
-      // Update URL hash for better UX (optional)
-      window.location.hash = routes[routeName].path;
+      
+      // Build URL with parameters
+      let path = routes[routeName].path;
+      Object.keys(params).forEach(key => {
+        path = path.replace(`:${key}`, params[key]);
+      });
+      
+      // Update URL hash for better UX
+      window.location.hash = path;
     }
   }
 
   // Get current route
   getCurrentRoute() {
     return this.currentRoute;
+  }
+
+  // Get current route parameters
+  getRouteParams() {
+    return this.routeParams;
   }
 
   // Add listener for route changes
@@ -57,16 +77,61 @@ export class Router {
 
   // Notify all listeners of route change
   notifyListeners() {
-    this.listeners.forEach(callback => callback(this.currentRoute));
+    this.listeners.forEach(callback => callback(this.currentRoute, this.routeParams));
+  }
+
+  // Match a hash to a route pattern
+  matchRoute(hash) {
+    const path = hash.slice(1) || '/';
+    
+    // Try exact match first
+    const exactMatch = Object.keys(routes).find(key => routes[key].path === path);
+    if (exactMatch) {
+      return { route: exactMatch, params: {} };
+    }
+
+    // Try pattern matching for dynamic routes
+    for (const [routeName, route] of Object.entries(routes)) {
+      const pattern = route.path;
+      const regex = new RegExp('^' + pattern.replace(/:[^/]+/g, '([^/]+)') + '$');
+      const match = path.match(regex);
+      
+      if (match) {
+        // Extract parameter names and values
+        const paramNames = (pattern.match(/:[^/]+/g) || []).map(p => p.slice(1));
+        const params = {};
+        paramNames.forEach((name, index) => {
+          params[name] = match[index + 1];
+        });
+        
+        return { route: routeName, params };
+      }
+    }
+    
+    return null;
   }
 
   // Initialize router (check URL hash on load)
   init() {
-    const hash = window.location.hash.slice(1) || '/';
-    const route = Object.keys(routes).find(key => routes[key].path === hash);
-    if (route) {
-      this.currentRoute = route;
+    const hash = window.location.hash || '#/';
+    const match = this.matchRoute(hash);
+    
+    if (match) {
+      this.currentRoute = match.route;
+      this.routeParams = match.params;
     }
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash || '#/';
+      const match = this.matchRoute(hash);
+      
+      if (match) {
+        this.currentRoute = match.route;
+        this.routeParams = match.params;
+        this.notifyListeners();
+      }
+    });
   }
 }
 

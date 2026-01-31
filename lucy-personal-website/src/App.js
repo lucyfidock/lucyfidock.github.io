@@ -6,9 +6,11 @@ import HomePage from './components/Home.js';
 import AboutPage from './components/About.js';
 import CvPage from './components/CV.js';
 import BlogPage from './components/Blog.js';
+import BlogPost from './components/BlogPost.js';
 
 const App = () => {
   const [currentRoute, setCurrentRoute] = useState('home');
+  const [routeParams, setRouteParams] = useState({});
   const [mode, setMode] = useState('light');
 
   // Component mapping
@@ -16,17 +18,20 @@ const App = () => {
     HomePage,
     AboutPage,
     CvPage,
-    BlogPage
+    BlogPage,
+    BlogPost
   };
 
   useEffect(() => {
     // Initialize router
     router.init();
     setCurrentRoute(router.getCurrentRoute());
+    setRouteParams(router.getRouteParams());
 
     // Listen for route changes
-    const handleRouteChange = (newRoute) => {
+    const handleRouteChange = (newRoute, newParams) => {
       setCurrentRoute(newRoute);
+      setRouteParams(newParams || {});
     };
 
     router.addListener(handleRouteChange);
@@ -42,7 +47,8 @@ const App = () => {
     const route = routes[currentRoute];
     if (route && components[route.component]) {
       const Component = components[route.component];
-      return <Component />;
+      // Pass route params as props to the component
+      return <Component {...routeParams} />;
     }
     // Fallback to HomePage if route not found
     return <HomePage />;

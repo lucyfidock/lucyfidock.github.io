@@ -12,7 +12,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-light-wisteria-50 dark:bg-pale-slate-950 text-light-wisteria-600 dark:text-light-wisteria-400 transition-colors">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-8 sm:px-6 md:px-4 py-8">
         <div className="max-w-4xl mx-auto">
 
           <div className="flex justify-flex-start flex-col mt-16">
@@ -21,7 +21,7 @@ const AboutPage = () => {
             </h1>
 
             <p className="text-xl font-sans mb-16">
-                Hi! I'm Lucy, a Computer Science student interested in Software Engineering and Cybersecurity. 
+                Hi! I'm Lucy, a Computer Science graduate interested in Software Engineering and Cybersecurity. 
                 I love problem solving and anything creative. If you'd like to hear about my previous experience and projects, please read   
                 <span onClick={() => handleNavigation('cv')} className="text-light-wisteria-600 dark:text-light-wisteria-400 cursor-pointer hover:text-light-wisteria-400 dark:hover:text-light-wisteria-600 font-bold"> here</span>.
             </p>
