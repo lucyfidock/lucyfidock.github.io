@@ -11,15 +11,23 @@ const BlogPost = ({ slug }) => {
 
   useEffect(() => {
     if (post) {
-      // Fetch the markdown file content
-      fetch(post.content)
-        .then(res => res.text())
+      // This works in both dev and production
+      const path = `${process.env.PUBLIC_URL}${post.content}`;
+      
+      fetch(path)
+        .then(res => {
+          if (!res.ok) throw new Error(`File not found: ${path}`);
+          return res.text();
+        })
         .then(text => {
           // Remove frontmatter (content between --- and ---)
           const contentWithoutFrontmatter = text.replace(/^---[\s\S]*?---\n*/m, '');
           setContent(contentWithoutFrontmatter);
         })
-        .catch(err => console.error('Error loading post:', err));
+        .catch(err => {
+          console.error('Error loading post:', err);
+          setContent('Error loading post content.');
+        });
     }
   }, [post]);
 
